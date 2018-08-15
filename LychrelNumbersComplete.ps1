@@ -33,11 +33,6 @@
     process 
     {
 
-    if($count -eq 0)
-    {
-        Write-Output $number;
-    }
-
     $count += 1;
     $numstr = $number.ToString();
 
@@ -59,17 +54,16 @@
 
     if($total -eq $totrev)
     {
-        Write-Output "is palindromic.";
+        return 0;
     }
-    elseif($count -le 50)
+    elseif(($total -ne $totrev) -and ($count -le 50))
     {
         $count += 1;
         Test-Palindrome -number $total -count $count;
     }
     else
     {
-        Write-Output "is a Lychrel number."
-        return;
+        return 1;
     };
 
     }
